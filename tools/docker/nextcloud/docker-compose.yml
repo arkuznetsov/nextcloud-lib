@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  nextcloud:
+    image: nextcloud:22
+    container_name: nextcloud
+    restart: always
+    volumes:
+      - "./data:/var/www/html"
+    ports:
+      - 8080:80

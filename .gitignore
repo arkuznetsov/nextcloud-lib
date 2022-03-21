@@ -1,0 +1,7 @@
+﻿.vscode
+\.sonar/
+test-reports/
+coverage/
+*.ospx
+oscript_modules
+tools/docker/nextcloud/data
