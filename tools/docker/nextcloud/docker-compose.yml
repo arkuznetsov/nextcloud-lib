@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   nextcloud:
-    image: nextcloud:22
+    image: nextcloud:latest
     container_name: nextcloud
     restart: always
     volumes:
