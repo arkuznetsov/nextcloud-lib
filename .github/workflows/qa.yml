@@ -49,11 +49,11 @@ jobs:
       # Запуск контейнера NextCloud
       - name: Запуск контейнера NextCloud
         run: |
-          docker-compose -f tools/nextcloud/docker-compose.yml up -d
+          docker-compose -f ./tools/docker/nextcloud/docker-compose.yml up -d
           docker ps
           while [ "`docker inspect -f {{.State.Health.Status}} nextcloud`" != "healthy" ]; do docker ps && sleep 2; done
           docker ps
-          docker-compose -f tools/nextcloud/docker-compose.yml exec --user www-data php occ maintenance:install --admin-user ${NC_ADMIN_NAME} --admin-pass ${NC_ADMIN_PWD}
+          docker-compose -f ./tools/docker/nextcloud/docker-compose.yml exec --user www-data php occ maintenance:install --admin-user ${NC_ADMIN_NAME} --admin-pass ${NC_ADMIN_PWD}
 
       # Запуск тестов и сбор покрытия кода
       - name: Тестирование и расчет покрытия кода
