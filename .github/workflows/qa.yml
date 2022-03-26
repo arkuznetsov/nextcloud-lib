@@ -49,8 +49,11 @@ jobs:
       # Запуск контейнера NextCloud
       - name: Запуск контейнера NextCloud
         run: |
-          docker-compose -f ./tools/docker/nextcloud/docker-compose.yml up -d
-          docker-compose -f ./tools/docker/nextcloud/docker-compose.yml exec --user www-data php occ maintenance:install --admin-user ${NC_ADMIN_NAME} --admin-pass ${NC_ADMIN_PWD}
+          docker run --name nextcloud -d -p 8080:80 nextcloud
+          docker ps
+          while [ "`curl -I -L -s http://localhost:8080 | grep "HTTP/1.1" | grep -oE '\b[0-9]{3}\b'`" != "200" ]; curl -I -L docker ps && sleep 2; done
+          docker ps
+          docker exec --user www-data nextcloud php occ maintenance:install --admin-user ${NC_ADMIN_NAME} --admin-pass ${NC_ADMIN_PWD}
 
       # Запуск тестов и сбор покрытия кода
       - name: Тестирование и расчет покрытия кода
