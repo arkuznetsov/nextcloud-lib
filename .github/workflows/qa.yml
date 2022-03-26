@@ -46,8 +46,8 @@ jobs:
           opm install opm
           opm install --dev
 
-      # запуск NextCloud
-      - name: Установка зависимостей
+      # Запуск контейнера NextCloud
+      - name: Запуск контейнера NextCloud
         run: |
           docker-compose -f tools/nextcloud/docker-compose.yml up -d
           docker ps
