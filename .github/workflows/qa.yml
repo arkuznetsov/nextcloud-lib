@@ -60,6 +60,9 @@ jobs:
 
       # Запуск тестов и сбор покрытия кода
       - name: Тестирование и расчет покрытия кода
+        env:
+          NC_ADMIN_NAME: ${{ secrets.NC_ADMIN_NAME }}
+          NC_ADMIN_PWD: ${{ secrets.NC_ADMIN_PWD }}
         run: oscript ./tasks/coverage.os
 
       - name: Извлечение версии пакета
