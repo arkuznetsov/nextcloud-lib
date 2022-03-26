@@ -48,6 +48,9 @@ jobs:
 
       # Запуск контейнера NextCloud
       - name: Запуск контейнера NextCloud
+        env:
+          NC_ADMIN_NAME: ${{ secrets.NC_ADMIN_NAME }}
+          NC_ADMIN_PWD: ${{ secrets.NC_ADMIN_PWD }}
         run: |
           docker run --name nextcloud -d -p 8080:80 nextcloud
           docker ps
