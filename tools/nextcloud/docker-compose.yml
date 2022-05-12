@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+ nextcloud:
+    image: nextcloud
+    restart: always
+    container_name: nextcloud
+    environment:
+        SQLITE_DATABASE: nextcloud
+        NEXTCLOUD_ADMIN_USER: ${NC_ADMIN_NAME}
+        NEXTCLOUD_ADMIN_PASSWORD: ${NC_ADMIN_PWD}
+    ports:
+        - "8080:80"

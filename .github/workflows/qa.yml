@@ -52,11 +52,8 @@ jobs:
           NC_ADMIN_NAME: ${{ secrets.NC_ADMIN_NAME }}
           NC_ADMIN_PWD: ${{ secrets.NC_ADMIN_PWD }}
         run: |
-          docker run --name nextcloud -d -p 8080:80 nextcloud
-          docker ps
-          while [ "`curl -I -L -s http://localhost:8080 | grep "HTTP/1.1" | grep -oE '\b[0-9]{3}\b'`" != "200" ]; do docker ps && sleep 2; done
-          docker ps
-          docker exec --user www-data nextcloud php occ maintenance:install --admin-user ${NC_ADMIN_NAME} --admin-pass ${NC_ADMIN_PWD}
+          docker-compose --file ./tools/nextcloud/docker-compose.yml up -d
+          oscript ./tools/nextcloud/checkenv.os
 
       # Запуск тестов и сбор покрытия кода
       - name: Тестирование и расчет покрытия кода

@@ -1,12 +1,17 @@
 @ECHO OFF
 
-FOR /f "usebackq tokens=*" %%a in (".env") DO (
+FOR /f "usebackq tokens=*" %%a in ("%~dp0.env") DO (
   FOR /F "tokens=1,2 delims==" %%b IN ("%%a") DO (
     set "%%b=%%c"
   )
 )
 
-@oscript %~dp0startenv.os
+docker-compose --file ./tools/nextcloud/docker-compose.yml up -d
+@oscript %~dp0checkenv.os
+IF %ERRORLEVEL% NEQ 0 GOTO END
+
 @oscript %~dp0..\..\tasks\test.os
-@oscript %~dp0stopenv.os
+
+:END
+@docker-compose --file %~dp0docker-compose.yml down  
 @exit /b %ERRORLEVEL%
