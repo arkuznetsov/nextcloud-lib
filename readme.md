@@ -1,5 +1,3 @@
-# Библиотека работы с сервисами NextCloud
-
 [![GitHub release](https://img.shields.io/github/release/ArKuznetsov/nextcloud-lib.svg?style=flat-square)](https://github.com/ArKuznetsov/nextcloud-lib/releases)
 [![GitHub license](https://img.shields.io/github/license/ArKuznetsov/nextcloud-lib.svg?style=flat-square)](https://github.com/ArKuznetsov/nextcloud-lib/blob/develop/LICENSE)
 [![GitHub Releases](https://img.shields.io/github/downloads/ArKuznetsov/nextcloud-lib/latest/total?style=flat-square)](https://github.com/ArKuznetsov/nextcloud-lib/releases)
@@ -10,7 +8,9 @@
 [![Coverage](https://open.checkbsl.org/api/project_badges/measure?project=nextcloud-lib&metric=coverage)](https://open.checkbsl.org/dashboard/index/nextcloud-lib)
 [![Tech debt](https://open.checkbsl.org/api/project_badges/measure?project=nextcloud-lib&metric=sqale_index)](https://open.checkbsl.org/dashboard/index/nextcloud-lib)
 
-## Назначение
+<a href="https://checkbsl.org"><img alt="Checked by Silver Bulleters SonarQube BSL plugin" src="https://web-files.do.bit-erp.ru/sonar/b_t.png" align="right" style="width:400px"/></a>
+
+# Библиотека работы с сервисами NextCloud
 
 Библиотека (oscript) nextcloud-lib предоставляет интерфейс для работы с сервисом [NextCloud](https://nextcloud.com/).
 
